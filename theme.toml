@@ -1,0 +1,12 @@
+name = "Stellar"
+license = "reative Commons Attribution 3.0 Unported"
+licenselink = "https://github.com/kanej/hugo_theme_stellar/blob/master/LICENSE.md"
+description = "Stellar is a theme for hugo based on HTML5 up's stellar theme."
+tags = []
+features = []
+min_version = 0.15
+relativeURLs = true
+
+[author]
+    name = "John Kane"
+    homepage = "http://www.kanej.me"

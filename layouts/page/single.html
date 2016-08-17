@@ -1,0 +1,23 @@
+{{ partial "header_before.html" . }}
+{{ partial "header_after.html" . }}
+
+<!-- Header -->
+<header id="header">
+  <h1>{{ .Title }}</h1>
+  <p>{{ .Params.subtitle }}</p>
+</header>
+
+<!-- Main -->
+<div id="main">
+
+  <!-- Content -->
+  <section id="content" class="main">
+    {{ if isset . "primary_image" }}
+    <span class="image main"><img src="images/{{ .primary_image }}" alt="" /></span>
+    {{ end }}
+    {{ .Content }}
+  </section>
+
+</div>
+
+{{ partial "footer.html" . }}

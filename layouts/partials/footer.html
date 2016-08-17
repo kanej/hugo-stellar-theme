@@ -1,0 +1,44 @@
+      <!-- Footer -->
+      <footer id="footer">
+        <section>
+          <h2>{{ .Site.Params.footer.title }}</h2>
+          <p>{{ .Site.Params.footer.about }}</p>
+          {{ if isset .Site.Params.footer "link" }}
+          <ul class="actions">
+            <li><a href="{{ .Site.Params.footer.link }}" class="button">Learn More</a></li>
+          </ul>
+          {{ end }}
+        </section>
+        <section>
+          <h2>Contact Us</h2>
+          <dl class="alt">
+            <dt>Address</dt>
+            <dd>{{ .Site.Params.footer.contact.address }}</dd>
+            <dt>Phone</dt>
+            <dd>{{ .Site.Params.footer.contact.phone }}</dd>
+            <dt>Email</dt>
+            <dd><a href="mailto:{{ .Site.Params.footer.contact.email }}">{{ .Site.Params.footer.contact.email }}</a></dd>
+          </dl>
+          <ul class="icons">
+            {{ range .Site.Params.footer.social }}
+            <li><a href="{{ .link }}" class="icon {{ .icon }} alt"><span class="label">{{ .title }}</span></a></li>
+            {{ end }}
+          </ul>
+        </section>
+        <p class="copyright">{{ if isset .Site.Params.footer "copyright" }}&copy; {{ .Site.Params.footer.copyright  }}. {{ end }}Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
+    <script src="/js/main.js"></script>
+
+    {{ template "_internal/google_analytics.html" . }}
+
+  </body>
+</html>

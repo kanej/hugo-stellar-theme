@@ -1,0 +1,50 @@
+<section id="{{ .Slug }}" class="main {{ if isset .Params "center" }}special{{ end }}">
+  <div class="spotlight">
+    <div class="content">
+      <header class="major">
+	<h2>{{ .Title }}</h2>
+        {{ if isset .Params "subtitle" }}
+        <p>{{ .Params.subtitle }}</p>
+        {{ end }}
+      </header>
+
+      {{ if isset .Params "thumbnail" }}
+      <ul class="features">
+        {{ range $index, $element := first 3 .Params.thumbnail }}
+        <li>
+	  {{ if isset $element "icon" }}
+          <span class="icon major style{{ add $index 1 }} {{ $element.icon }}"></span>
+          {{ end }}
+          <h3>{{ $element.title }}</h3>
+	  <p>{{ $element.text }}</p>
+	</li>
+        {{ end }}
+      </ul>
+      {{ end }}
+
+      {{ if isset .Params "statistic" }}
+      <ul class="statistics">
+        {{ range $index, $element := first 5 .Params.statistic }}
+	<li class="style{{ add $index 1 }}">
+          {{ if isset $element "icon" }}
+          <span class="icon {{ $element.icon }}"></span>
+          {{ end }}
+	  <strong>{{ $element.value }}</strong> {{ $element.title }}
+	</li>
+        {{ end }}
+      </ul>
+      {{ end }}
+
+      {{ .Content }}
+
+      <ul class="actions">
+        {{ range .Params.action }}
+	<li><a href="{{ .link }}" class="button {{ if isset . "highlight" }}special{{ end}}">{{ .text }}</a></li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ if isset .Params "primary_image" }}
+    <span class="image"><img src="images/{{ .Params.primary_image }}" alt="" /></span>
+    {{ end }}
+  </div>
+</section>

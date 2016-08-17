@@ -1,0 +1,82 @@
+{{ partial "header_before.html" . }}
+{{ partial "header_after.html" . }}
+
+<!-- Header -->
+<header id="header">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Params.subtitle }}</p>
+</header>
+
+<!-- Main -->
+<div id="main">
+
+    <!-- Content -->
+    <section id="content" class="main">
+        {{ if isset . "primary_image" }}
+        <span class="image main"><img src="images/{{ .primary_image }}" alt="" /></span>
+        {{ end }}
+        {{ .Content }}
+
+        <form action="https://formspree.io/{{ .Params.form_email }}" method="POST">
+            <input type="hidden" name="_subject" value="{{ .Params.email_subject }}" />
+            <input type="hidden" name="_next" value="{{ .Site.BaseURL }}{{ .Params.redirect_link }}" />
+            <div class="row uniform">
+                {{ range .Params.formcontrol }}
+                {{ if eq .type "textarea" }}
+                <div class="12u$">
+                    <label for="{{ .name }}">{{ .label }}</label>
+                    <textarea cols="30" name="{{ .name }}" rows="4" placeholder="{{ .placeholder }}"></textarea>
+                </div>
+                {{ else if eq .type "label" }}
+                <div class="12u$">
+                    <label for="{{ .name }}">Do you have any previous criminal convictions?</label>
+                </div>
+                {{ else if eq .type "radio" }}
+                <div class="4u 12u$(small)">
+                    <input id="{{ .id }}" type="radio" name="{{ .name }}" value="{{ .value }}"/>
+                    <label for="{{ .id }}">{{ .label }}</label>
+                </div>
+                {{ else }}
+                <div class="12u$">
+                    <label for="{{ .name }}">{{ .label }}</label>
+                    <input name="{{ .name }}" type="{{ .type }}" placeholder="{{ .placeholder }}" />
+                </div>
+                {{ end }}
+                {{ end }}
+                <div class="12u$">
+                    <input class="special" type="submit" value="Submit"/>
+                </div>
+            </div>
+        </form>
+    </section>
+
+</div>
+
+<style>
+  #main label {
+    font-size: 18px;
+  }
+
+  #main input[type="tel"],
+  #main input[type="date"] {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    border-radius: 8px;
+    border: solid 1px;
+    color: inherit;
+    display: block;
+    outline: 0;
+    padding: 0 1em;
+    text-decoration: none;
+    width: 100%;
+
+    background: rgba(222, 222, 222, 0.25);
+    border-color: #dddddd;
+
+    height: 2.75em;
+  }
+</style>
+
+{{ partial "footer.html" . }}

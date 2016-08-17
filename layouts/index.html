@@ -1,0 +1,27 @@
+{{ partial "header_before.html" . }}
+{{ partial "header_after.html" . }}
+
+<!-- Header -->
+<header id="header" class="alt">
+    <span class="logo"><img src="images/{{ with .Site.Params.logo }}{{ . }}{{ else }}logo.svg{{ end }} " alt="" /></span>
+    <h1>{{ .Site.Params.name }}</h1>
+    <p>{{ .Site.Params.tagline }}</p>
+</header>
+
+<!-- Nav -->
+<nav id="nav">
+    <ul>
+        {{ range where .Data.Pages "Section" "card" }}
+	<li><a href="#{{ .Slug }}" class="active">{{ .LinkTitle }}</a></li>
+        {{ end }}
+    </ul>
+</nav>
+
+<!-- Main -->
+<div id="main">
+    {{ range where .Data.Pages "Section" "card" }}
+    {{ .Render "summary" }}
+    {{ end }}
+</div>
+
+{{ partial "footer.html" . }}

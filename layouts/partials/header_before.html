@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<!--
+    Stellar by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  -->
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+  <head>
+    <meta charset="utf-8" />
+    {{ .Hugo.Generator }}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" href="/images/icons/{{ .Site.Params.favicon  }}" type="image/x-icon" />
+    <!--[if lte IE 8]><script src="/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
+
+    {{ if eq .URL "/" }}
+      <title>{{ .Title }}</title>
+      <meta property='og:title' content="{{ .Title }}">
+      <meta property="og:type" content="website">
+    {{ else }}
+      <title>{{ .Title }} - {{ .Site.Title }}</title>
+      <meta property='og:title' content="{{ .Title }} - {{ .Site.Title }}">
+      <meta property="og:type" content="article">
+    {{ end }}
