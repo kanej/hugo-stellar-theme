@@ -12,8 +12,8 @@
 
   <!-- Content -->
   <section id="content" class="main">
-    {{ if isset . "primary_image" }}
-    <span class="image main"><img src="images/{{ .primary_image }}" alt="" /></span>
+    {{ if isset .Params "primary_image" }}
+      <span class="image main"><img src="/images/{{ .Params.primary_image }}" alt="" /></span>
     {{ end }}
     {{ .Content }}
   </section>

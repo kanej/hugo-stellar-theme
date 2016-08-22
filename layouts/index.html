@@ -3,7 +3,7 @@
 
 <!-- Header -->
 <header id="header" class="alt">
-    <span class="logo"><img src="images/{{ with .Site.Params.logo }}{{ . }}{{ else }}logo.svg{{ end }} " alt="" /></span>
+    <span class="logo"><img src="/images/{{ with .Site.Params.logo }}{{ . }}{{ else }}logo.svg{{ end }} " alt="" /></span>
     <h1>{{ .Site.Params.name }}</h1>
     <p>{{ .Site.Params.tagline }}</p>
 </header>
